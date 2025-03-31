@@ -1,5 +1,6 @@
 package com.ifsc.contaclicks;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.util.Log;
@@ -35,59 +36,17 @@ Button buttonCalcular;
         //define um tratamento para o click no botao
 
         buttonCalcular.setOnClickListener(v ->{
-            //calcular o IMC
-            double peso,altura,IMC;
-
-            peso = Double.parseDouble(edpeso.getText().toString());
-            altura = Double.parseDouble(edaltura.getText().toString());
 
 
-           IMC = peso /(altura*altura);
-           //Formatando numero ##,##
-            DecimalFormat decimalFormat = new DecimalFormat("##,##");
-
-
-          tvresultadoimc.setText(decimalFormat.format(IMC));
-
+            Intent intent = new Intent(getApplicationContext(), MainActivityB.class);
+            String msg = edpeso.getText().toString();
+            intent.putExtra("mesagem",msg);
+            startActivity(intent);
 
         });
 
 
     }
 
-    @Override
-    protected void onStart(){
-        super.onStart();
-        Log.d("Ciclo de vida","metodo onStart");
-    }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Log.d("Ciclo de vida","metodo onResume");
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Log.d("Ciclo de vida","metodo onPause");
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        Log.d("Ciclo de vida","metodo onStop");
-    }
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        Log.d("Ciclo de vida","metodo onRestart");
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        Log.d("Ciclo de vida","metodo onDestroy");
-    }
 }
