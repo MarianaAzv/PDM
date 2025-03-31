@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.text.DecimalFormat;
+
 public class MainActivity extends AppCompatActivity {
 int i=0;
 EditText edpeso,edaltura;
@@ -36,7 +38,11 @@ Button buttonCalcular;
 
 
            IMC = peso /(altura*altura);
-          tvresultadoimc.setText(Double.toString(IMC));
+           //Formatando numero ##,##
+            DecimalFormat decimalFormat = new DecimalFormat("##,##");
+
+
+          tvresultadoimc.setText(decimalFormat.format(IMC));
 
 
         });
