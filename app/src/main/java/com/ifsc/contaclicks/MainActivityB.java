@@ -9,7 +9,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+
 public class MainActivityB extends AppCompatActivity {
+    TextView ResultadoNome,ResultadoPeso,resultadoAltura,resultadoIMC;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

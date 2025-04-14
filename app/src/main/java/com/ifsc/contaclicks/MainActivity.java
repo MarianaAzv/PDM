@@ -26,7 +26,7 @@ int i=0;
             R.drawable.obesidade1,R.drawable.obesidade2,R.drawable.obesidade3,R.drawable.sobrepeso};
     Button buttonNextImage,buttonCacular;
     int posicao =0;
-EditText edpeso,edaltura;
+EditText edpeso,edaltura, edNome;
 
 TextView tvresultadoimc;
 
@@ -42,7 +42,8 @@ Button buttonCalcular;
         setContentView(R.layout.activity_main);
         edpeso = findViewById(R.id.edpeso);
         edaltura = findViewById(R.id.edaltura);
-        tvresultadoimc = findViewById(R.id.tvresultadoimc);
+        edNome= findViewById(R.id.edNome);
+
         buttonCalcular = findViewById(R.id.button);
         //define um tratamento para o click no botao
 
@@ -52,13 +53,29 @@ Button buttonCalcular;
             peso = Double.parseDouble(edpeso.getText().toString());
             altura = Double.parseDouble(edaltura.getText().toString());
 
-            //Intent intent = new Intent(getApplicationContext(), MainActivityB.class);
-            //String msg = edpeso.getText().toString();
-            //intent.putExtra("mesagem",msg);
-            //startActivity(intent);
+
 
             IMC = peso /(altura*altura);
-            tvresultadoimc.setText(Double.toString(IMC));
+         //  tvresultadoimc.setText(Double.toString(IMC));
+
+            DecimalFormat decimalFormat = new DecimalFormat("##,##");
+
+
+            tvresultadoimc.setText(decimalFormat.format(IMC));
+
+            Intent intent = new Intent(getApplicationContext(), MainActivityB.class);
+            String msgPeso = edpeso.getText().toString();
+            String msgAltura = edaltura.getText().toString();
+            String msgNome = edNome.getText().toString();
+            String msgResultado=tvresultadoimc.getText().toString();
+            intent.putExtra("mensagem",msgResultado);
+            intent.putExtra("mensagem",msgAltura);
+            intent.putExtra("mensagem",msgNome);
+            intent.putExtra("mesagem",msgPeso);
+            startActivity(intent);
+
+
+
         });
 
 
