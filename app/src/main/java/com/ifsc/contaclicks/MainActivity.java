@@ -19,20 +19,14 @@ int i=0;
          setContentView(R.layout.activity_main);
         //Associando objeto interface a variavel local
          TextView tv = findViewById(R.id.textView);
-          tv.setText(getString(R.string.app_name));
-
-          Button b= findViewById(R.id.button);
-          b.setOnClickListener(v -> {//Seu codigo aqui
-              });
-
-          b.setOnClickListener(new View.OnClickListener(){
-              public void onClick(View v){
-            tv.setText(Integer.toString(i));
-            i++;
-              }
 
 
-          } );
+
+
+
+
+
+
 
 
         }
