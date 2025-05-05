@@ -1,7 +1,9 @@
 package com.ifsc.contaclicks;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -15,7 +17,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 int i=0;
-String[] nomes = new String[] {"Anne","Fernanda","Joao1","Joao2","Joao3"};
+String[] nomes = new String[] {"Mercurio","Venus","Terra","Marte","Jupter","Saturno","Urano","Netuno"};
 ListView lv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +27,7 @@ ListView lv;
 //Recuperar Listview
         lv= findViewById(R.id.Listview);
         //Adaptador
-        ArrayAdapter<String> arrayAdapterNomes = new ArrayAdapter(
+        ArrayAdapter<String> arrayAdapterPlanetas = new ArrayAdapter(
                 //this(ActivityMain),fxml,(dentro
                 this,
                 //android.R.layout.simple_list_item_1,
@@ -34,7 +36,20 @@ ListView lv;
                 //android.R.id.text1,
                 nomes);
 
-lv.setAdapter(arrayAdapterNomes);
+lv.setAdapter(arrayAdapterPlanetas);
+lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Intent i = new Intent(getApplicationContext(),
+                PlanetaMain.class);
+
+        i.putExtra("nome",nomes[position]);
+
+        startActivity(i);
+    }
+});
+
+
 
         }
 
