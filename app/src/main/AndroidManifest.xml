@@ -21,6 +21,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".PlanetaMain"
+            android:exported="true"
+            android:targetActivity="">
+
+        </activity>
+
     </application>
 
 </manifest>
