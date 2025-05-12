@@ -1,5 +1,6 @@
 package com.ifsc.contaclicks;
 
+import android.graphics.Bitmap;
 import android.graphics.Insets;
 import android.os.Bundle;
 import android.provider.ContactsContract;
@@ -13,7 +14,11 @@ import androidx.core.view.WindowInsetsCompat;
 public class PlanetaMain extends AppCompatActivity {
     TextView textView2;
 
-   // protected void onCreate(Bundle savedInstanceState) {
+
+
+
+
+    // protected void onCreate(Bundle savedInstanceState) {
     //    super.onCreate(savedInstanceState);
       //  setContentView(R.layout.activity_main_b);
         //Bundle bundle=getIntent().getExtras();

@@ -17,7 +17,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 int i=0;
-String[] nomes = new String[] {"Mercurio","Venus","Terra","Marte","Jupter","Saturno","Urano","Netuno"};
+//String[] nomes = new String[] {"Mercurio","Venus","Terra","Marte","Jupter","Saturno","Urano","Netuno"};
 ListView lv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,29 +27,25 @@ ListView lv;
 //Recuperar Listview
         lv= findViewById(R.id.Listview);
         //Adaptador
-        ArrayAdapter<String> arrayAdapterPlanetas = new ArrayAdapter(
+      //  ArrayAdapter<String> arrayAdapterPlanetas = new ArrayAdapter(
                 //this(ActivityMain),fxml,(dentro
-                this,
+      //          this,
                 //android.R.layout.simple_list_item_1,
-                R.layout.item_lista,
-                R.id.textView,
+//                R.layout.item_lista,
+//                R.id.textView,
                 //android.R.id.text1,
-                nomes);
+//                nomes);
+//
+        PlanetaDAO planetaDAO = new PlanetaDAO();
+        AdapterPlaneta ap = new AdapterPlaneta(
+                this,R.layout.item_lista, planetaDAO.getPlanetas()
+        );
+//lv.setAdapter(arrayAdapterPlanetas);
 
-lv.setAdapter(arrayAdapterPlanetas);
+                lv.setAdapter(ap);
+lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {...});
 
 
-lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Intent i = new Intent(getApplicationContext(),
-                PlanetaMain.class);
-
-        i.putExtra("nome",nomes[position]);
-
-        startActivity(i);
-    }
-});
 
 
 
