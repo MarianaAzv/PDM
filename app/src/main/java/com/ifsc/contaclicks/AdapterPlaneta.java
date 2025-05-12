@@ -13,7 +13,7 @@ import java.util.List;
 
 public class AdapterPlaneta extends ArrayList<Planeta> {
     int mresource;
-    public adapterPlaneta(@NonNull Context context, int resource, @NonNull List<Planeta> objetos){
+    public AdapterPlaneta(@NonNull Context context, int resource, @NonNull List<Planeta> objetos){
         super(context, resource, objetos);
         mresource =resource;
     }
