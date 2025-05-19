@@ -1,6 +1,8 @@
 package com.ifsc.contaclicks;
 
-public class Planeta {
+import java.io.Serializable;
+
+public class Planeta implements Serializable {
     String nome;
 
     //Bitmap image;

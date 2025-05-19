@@ -36,16 +36,32 @@ ListView lv;
                 //android.R.id.text1,
 //                nomes);
 //
-        PlanetaDAO planetaDAO = new PlanetaDAO();
+        PlanetaDAO planetaDAO = new PlanetaDAO(); //Data Source
         AdapterPlaneta ap = new AdapterPlaneta(
                 this,R.layout.item_lista, planetaDAO.getPlanetas()
         );
 //lv.setAdapter(arrayAdapterPlanetas);
 
+        //Exibir a lista de planetas
                 lv.setAdapter(ap);
-lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {...});
+//lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {});
+
+lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+       Planeta p =planetaDAO.getPlanetas().get(position);
 
 
+       //Criamos uma intenção para abrir nova atividade
+
+        Intent i = new Intent(getApplicationContext(), PlanetaMain.class);
+
+
+i.putExtra("Planeta",p);
+
+startActivity(i);
+    }
+});
 
 
 
