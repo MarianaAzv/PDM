@@ -16,24 +16,27 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     SensorManager mSensorManager;
     Sensor sensor;
-    TextView tv;
+    TextView tx,ty,tz;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        tv = findViewById(R.id.TextView);
+        tx = findViewById(R.id.TextViewX);
+        ty = findViewById(R.id.textViewY);
+        tz = findViewById(R.id.textViewZ);
 
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-        sensor = mSensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
-
+        sensor = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         mSensorManager.registerListener(this,sensor,SensorManager.SENSOR_DELAY_NORMAL);
     }
 
     @Override
     public void onSensorChanged(SensorEvent sensorEvent) {
-        tv.setText(Float.toString(sensorEvent.values[0]));
+        tx.setText("X: " + Float.toString(sensorEvent.values[0]));
+        ty.setText("Y: " + Float.toString(sensorEvent.values[1]));
+        tz.setText("Z: " + Float.toString(sensorEvent.values[2]));
     }
 
     @Override
