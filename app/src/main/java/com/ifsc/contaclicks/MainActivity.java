@@ -3,6 +3,7 @@ package com.ifsc.contaclicks;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -16,6 +17,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -33,9 +35,17 @@ public class MainActivity extends AppCompatActivity {
         lv=findViewById(R.id.listView);
         pm=getPackageManager();
 
-        applicationInfosList=pm.getInstalledApplications(PackageManager.MATCH_ALL);
+        //applicationInfosList=pm.getInstalledApplications(PackageManager.MATCH_ALL);
+          Intent intentFilter = new Intent(Intent.ACTION_MAIN);
+        intentFilter.addCategory(Intent.CATEGORY_LAUNCHER);
 
-        AppAdapter appAdapter = new AppAdapter(this,R.layout.app_item);
+        List<ResolveInfo> lRInfo=pm.queryIntentActivities(intentFilter,0);
+        applicationInfosList=new ArrayList<>();
+        for(ResolveInfo r: lRInfo){
+
+            applicationInfosList.add(r.activityInfo.applicationInfo);
+        }
+        AppAdapter appAdapter = new AppAdapter(this,R.layout.app_item,applicationInfosList);
         lv.setAdapter(appAdapter);
 
         lv.setOnItemClickListener((adapter, view, position, id) ->{
