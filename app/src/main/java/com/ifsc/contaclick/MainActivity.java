@@ -15,11 +15,11 @@ import java.text.DecimalFormat;
 public class MainActivity extends AppCompatActivity {
 
 
-    EditText edPeso,edAltura, edNome;
+    EditText edPe,edAl, edN;
     TextView tvResultado;
 
     TextView txtIMC;
-    Button buttonCalcular;
+    Button button;
 
 
     ImageView img;
@@ -28,45 +28,45 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Log.d("ciclo de vida", "metodo onCreate");
+
 
         setContentView(R.layout.activity_main);
         txtIMC=findViewById(R.id.txtCalcularIMC);
-        edPeso=findViewById((R.id.editTxtPeso));
-        edAltura=findViewById(R.id.editTxtAltura);
-        edNome=findViewById(R.id.editTextNome);
-        buttonCalcular=findViewById(R.id.button);
+        edPe=findViewById((R.id.editTxtPeso));
+        edAl=findViewById(R.id.editTxtAltura);
+        edN=findViewById(R.id.editTextNome);
+        button=findViewById(R.id.button);
         img=findViewById(R.id.imageView);
         img.setImageResource(R.drawable.perfil);
 
 
 
-        buttonCalcular.setOnClickListener(v ->{
-            //calcular imc
+        button.setOnClickListener(v ->{
+
             float peso,altura,imc;
-            peso = Float.parseFloat(edPeso.getText().toString());
-            altura = Float.parseFloat(edAltura.getText().toString());
+            peso = Float.parseFloat(edPe.getText().toString());
+            altura = Float.parseFloat(edAl.getText().toString());
 
             imc = (peso/(altura * altura));
 
-            //formatando número
+
             DecimalFormat decimalFormat = new DecimalFormat("##.##");
 
-            //    tvResultado.setText(decimalFormat.format(imc));
+
 
             Intent intent = new Intent(getApplicationContext(), MainActivityB.class);
 
-            String resultNome = edNome.getText().toString();
-            intent.putExtra("Nome",resultNome);
+            String resNome = edN.getText().toString();
+            intent.putExtra("Nome",resNome);
 
-            String resultAltura = edAltura.getText().toString();
-            intent.putExtra("Altura",resultAltura);
+            String restAltura = edAl.getText().toString();
+            intent.putExtra("Altura",restAltura);
 
-            String resultPeso = edPeso.getText().toString();
-            intent.putExtra("Peso",resultPeso);
+            String resPeso = edPe.getText().toString();
+            intent.putExtra("Peso",resPeso);
 
-            String resultIMC = String.valueOf(imc);
-            intent.putExtra("IMC",resultIMC);
+            String resIMC = String.valueOf(imc);
+            intent.putExtra("IMC",resIMC);
 
             startActivity(intent);
         });
