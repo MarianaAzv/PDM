@@ -8,11 +8,11 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/TextViewX"
+        android:id="@+id/X"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Ola"
-        android:textColor="#0037FF"
+        android:textColor="#A425C1"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,11 +22,11 @@
         app:layout_constraintVertical_bias="0.255" />
 
     <TextView
-        android:id="@+id/textViewY"
+        android:id="@+id/Y"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Ola"
-        android:textColor="#0037FF"
+        android:textColor="#B42BDA"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,11 +35,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textViewZ"
+        android:id="@+id/Z"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Ola"
-        android:textColor="#0037FF"
+        android:textColor="#8E1F9A"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
